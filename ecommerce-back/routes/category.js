@@ -14,11 +14,12 @@ import {
   productsByCategory,
 } from "../controllers/category.js";
 
-categoryRouter.post("/api/category", requireSignin, isAdmin, create);
-categoryRouter.put("/api/category/:categoryId", requireSignin, isAdmin, update);
-categoryRouter.delete("/api/category/:categoryId", requireSignin, isAdmin, remove);
 categoryRouter.get("/api/categories", list);
 categoryRouter.get("/api/category/:slug", read);
 categoryRouter.get("/api/products-by-category/:slug", productsByCategory);
+categoryRouter.post("/api/category", requireSignin, isAdmin, create);
+categoryRouter.put("/api/category/:categoryId", requireSignin, isAdmin, update);
+categoryRouter.delete("/api/category/:categoryId", requireSignin, isAdmin, remove);
+
 
 export default categoryRouter;

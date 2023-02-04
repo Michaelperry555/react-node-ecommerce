@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Ecommerce API with NodeJS and MongoDB",
+  "description": " Fullstack Ecommerce",
   "main": "index.js",
   "type": "module",
   "scripts": {
