@@ -6,7 +6,7 @@ import Order from "../models/order.js";
 
 dotenv.config();
 
-export const register = async (req, res) => {
+export async function register (req, res) {
   try {
     // 1. destructure name, email, password from req.body
     const { name, email, password } = req.body;
@@ -52,7 +52,7 @@ export const register = async (req, res) => {
   }
 };
 
-export const login = async (req, res) => {
+export async function login (req, res) {
   try {
     // 1. destructure name, email, password from req.body
     const { email, password } = req.body;
@@ -92,11 +92,11 @@ export const login = async (req, res) => {
   }
 };
 
-export const secret = async (req, res) => {
+export async function secret (req, res) {
   res.json({ currentUser: req.user });
 };
 
-export const updateProfile = async (req, res) => {
+export async function updateProfile (req, res) {
   try {
     const { name, password, address } = req.body;
     const user = await User.findById(req.user._id);
@@ -126,7 +126,7 @@ export const updateProfile = async (req, res) => {
   }
 };
 
-export const getOrders = async (req, res) => {
+export async function getOrders (req, res) {
   try {
     const orders = await Order.find({ buyer: req.user._id })
       .populate("products", "-photo")
@@ -137,7 +137,7 @@ export const getOrders = async (req, res) => {
   }
 };
 
-export const allOrders = async (req, res) => {
+export async function getAllOrders (req, res) {
   try {
     const orders = await Order.find({})
       .populate("products", "-photo")
